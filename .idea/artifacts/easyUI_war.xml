@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="easyUI:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="easyUI.war">
+      <element id="artifact" artifact-name="easyUI:war exploded" />
+    </root>
+  </artifact>
+</component>
