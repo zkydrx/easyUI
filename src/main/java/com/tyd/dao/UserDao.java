@@ -15,7 +15,7 @@ public interface UserDao extends GenericDao<AcctUser,String>
     AcctUser get(String id);
     List<AcctUser> findAll();
     void persist(AcctUser entity);
-    String save(AcctUser entity);
+    void save(AcctUser entity);
     void saveOrUpdate(AcctUser entity);
     void delete(String id);
     void flush();

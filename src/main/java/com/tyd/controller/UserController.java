@@ -1,14 +1,15 @@
 package com.tyd.controller;
 
 
-import com.tyd.entity.AcctUser;
+import com.tyd.pojo.AcctUserDto;
 import com.tyd.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by ZKY on 2017-08-23 18:47.
@@ -22,11 +23,12 @@ public class UserController
 
     @Autowired
     private UserService userService;
-    public String showUserInfo(ModelMap modelMap, @PathVariable String  userId)
+
+    @RequestMapping(value="/showuserInfo", method= RequestMethod.GET)
+    public String showUserInfo(ModelMap modelMap, @RequestParam String  userId)
     {
         LOGGER.info("查询用户:"+ userId);
-
-        AcctUser userInfo = userService.load(userId);
+        AcctUserDto userInfo = userService.load(userId);
         modelMap.addAttribute("userInfo",userInfo);
         return "/user/showInfo";
     }

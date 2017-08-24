@@ -2,7 +2,9 @@ package com.tyd.service.impl;
 
 import com.tyd.dao.UserDao;
 import com.tyd.entity.AcctUser;
+import com.tyd.pojo.AcctUserDto;
 import com.tyd.service.UserService;
+import com.tyd.util.BeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,35 +19,48 @@ public class UserServiceImpl implements UserService
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private BeanMapper beanMapper;
+
     @Override
-    public AcctUser load(String id)
+    public AcctUserDto load(String id)
     {
-        return userDao.load(id);
+
+        AcctUser acctUser = userDao.load(id);
+        AcctUserDto acctUserDto = beanMapper.map(acctUser, AcctUserDto.class);
+        return acctUserDto;
     }
     @Override
-    public AcctUser get(String id)
+    public AcctUserDto get(String id)
     {
-        return userDao.get(id);
+        AcctUser acctUser = userDao.get(id);
+        AcctUserDto acctUserDto = beanMapper.map(acctUser, AcctUserDto.class);
+        return acctUserDto;
     }
     @Override
-    public List<AcctUser> findAll()
+    public List<AcctUserDto> findAll()
     {
-        return userDao.findAll();
+        List<AcctUser> acctUserList = userDao.findAll();
+        List<AcctUserDto> acctUserDtoList = beanMapper.map(acctUserList, AcctUserDto.class);
+        return acctUserDtoList;
     }
     @Override
-    public void persist(AcctUser entity)
+    public void persist(AcctUserDto entity)
     {
-        userDao.persist(entity);
+        AcctUser acctUser = beanMapper.map(entity, AcctUser.class);
+        userDao.persist(acctUser);
     }
     @Override
-    public String save(AcctUser entity)
+    public void save(AcctUserDto entity)
     {
-        return userDao.save(entity);
+        AcctUser acctUser = beanMapper.map(entity, AcctUser.class);
+        userDao.save(acctUser);
     }
     @Override
-    public void saveOrUpdate(AcctUser entity)
+    public void saveOrUpdate(AcctUserDto entity)
     {
-        userDao.saveOrUpdate(entity);
+        AcctUser acctUser = beanMapper.map(entity, AcctUser.class);
+        userDao.saveOrUpdate(acctUser);
     }
     @Override
     public void delete(String id)

@@ -48,9 +48,9 @@ public class UserDaoImpl implements UserDao
         this.getCurrentSession().persist(entity);
     }
     @Override
-    public String save(AcctUser entity)
+    public void save(AcctUser entity)
     {
-        return (String)this.getCurrentSession().save(entity);
+        this.getCurrentSession().save(entity);
     }
     @Override
     public void saveOrUpdate(AcctUser entity)

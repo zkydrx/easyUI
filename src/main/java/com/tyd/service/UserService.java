@@ -1,6 +1,6 @@
 package com.tyd.service;
 
-import com.tyd.entity.AcctUser;
+import com.tyd.pojo.AcctUserDto;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ import java.util.List;
  */
 public interface UserService
 {
-    AcctUser load(String id);
-    AcctUser get(String id);
-    List<AcctUser> findAll();
-    void persist(AcctUser entity);
-    String save(AcctUser entity);
-    void saveOrUpdate(AcctUser entity);
+    AcctUserDto load(String id);
+    AcctUserDto get(String id);
+    List<AcctUserDto> findAll();
+    void persist(AcctUserDto entity);
+    void save(AcctUserDto entity);
+    void saveOrUpdate(AcctUserDto entity);
     void delete(String id);
     void flush();
 }

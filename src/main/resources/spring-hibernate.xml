@@ -90,6 +90,14 @@
     </bean>
 
 
+    <!-- org.dozer.spring.DozerBeanMapperFactoryBean -->
+    <bean id="mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
+        <property name="mappingFiles">
+            <list>
+                <value>classpath*:dozerBeanMapping.xml</value>
+            </list>
+        </property>
+    </bean>
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">

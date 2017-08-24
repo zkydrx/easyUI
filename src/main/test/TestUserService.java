@@ -1,6 +1,7 @@
-import com.alibaba.fastjson.JSON;
 import com.tyd.entity.AcctUser;
+import com.tyd.pojo.AcctUserDto;
 import com.tyd.service.UserService;
+import com.tyd.util.DateUtils;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,9 +32,13 @@ public class TestUserService
 
         acctUser.setId(UUID.randomUUID().toString().replaceAll("\\-",""));
         acctUser.setNickName("Abbot");
-        acctUser.setTelephone("17858835210");
+        acctUser.setTelephone("17888888888");
         acctUser.setRegisterDate(new Date());
-        String id = userService.save(acctUser);
-        LOGGER.info(JSON.toJSONString(id));
+        AcctUserDto acctUserDto = new AcctUserDto();
+        acctUserDto.setId(acctUser.getId());
+        acctUserDto.setNickName(acctUser.getNickName());
+        acctUserDto.setRegisterDate(DateUtils.formatDate(acctUser.getRegisterDate()));
+        acctUserDto.setTelephone(acctUser.getTelephone());
+        userService.save(acctUserDto);
     }
 }

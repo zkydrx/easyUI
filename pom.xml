@@ -178,6 +178,52 @@
 
 
 
+    <!-- https://mvnrepository.com/artifact/net.sf.dozer/dozer
+        Mapper转换，将Entity实体类转换成DTO用。
+    -->
+    <dependency>
+      <groupId>net.sf.dozer</groupId>
+      <artifactId>dozer</artifactId>
+      <version>5.5.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/net.sf.dozer/dozer-spring -->
+    <dependency>
+      <groupId>net.sf.dozer</groupId>
+      <artifactId>dozer-spring</artifactId>
+      <version>5.5.1</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/com.google.guava/guava
+     Lists类
+     -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>23.0</version>
+    </dependency>
+
+
+    <!--&lt;!&ndash; https://mvnrepository.com/artifact/net.sf.dozer/dozer-osgi &ndash;&gt;
+      引入此jar包相当于引入了
+      <artifactId>dozer</artifactId>
+      <version>5.5.1</version>
+
+       <artifactId>dozer-spring</artifactId>
+      <version>5.5.1</version>
+      这两个jar包但是效果是一样的
+
+    -->
+    <!--<dependency>-->
+      <!--<groupId>net.sf.dozer</groupId>-->
+      <!--<artifactId>dozer-osgi</artifactId>-->
+      <!--<version>5.5.1</version>-->
+    <!--</dependency>-->
+
+
+
+
 
   </dependencies>
   <build>
